@@ -41,7 +41,7 @@ class ipfn(object):
         self.conv_rate = convergence_rate
         self.max_itr = max_iteration
         if verbose not in [0, 1, 2]:
-            raise(ValueError(f"wrong verbose input, must be either 0, 1 or 2 but got {verbose}"))
+            raise(ValueError("wrong verbose input, must be either 0, 1 or 2 but got "+str(verbose)))
         self.verbose = verbose
         self.rate_tolerance = rate_tolerance
 
