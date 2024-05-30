@@ -268,7 +268,7 @@ class ipfn(object):
             ipfn_method = self.ipfn_np
             self.original = self.original.astype('float64')
         else:
-            raise(ValueError(f'Data input instance not recognized. The input matrix is not a numpy array or pandas DataFrame'))
+            raise(ValueError('Data input instance not recognized. The input matrix is not a numpy array or pandas DataFrame'))
         while ((i <= self.max_itr and conv > self.conv_rate) and (i <= self.max_itr and abs(conv - old_conv) > self.rate_tolerance)):
             old_conv = conv
             m, conv = ipfn_method(m, self.aggregates, self.dimensions, self.weight_col)
@@ -292,4 +292,4 @@ class ipfn(object):
         elif self.verbose == 2:
             return m, converged, pd.DataFrame({'iteration': range(i), 'conv': conv_list}).set_index('iteration')
         else:
-            raise(ValueError(f'wrong verbose input, must be either 0, 1 or 2 but got {self.verbose}'))
+            raise(ValueError('wrong verbose input, must be either 0, 1 or 2 but got '+str(self.verbose)))
